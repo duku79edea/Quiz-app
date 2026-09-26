@@ -92,4 +92,18 @@ header h1{
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    cursor: pointer;
+}
+
+.btn-nav .answered{
+    background-color: #AABDFF;
+    color: rgb(214, 224, 224);
+}
+.btn-nav .current{
+    background-color: #FFAAAD;
+    color: rgb(214, 224, 224);
+}
+.btn-nav .unanswered {
+    background-color: #C4C4C4;
+
 }

@@ -1,10 +1,10 @@
 import {quizData} from '../data/quizData'
 
-export default function Explanation(){
+export default function Explanation({ currentIndex}){
     return (
         <div className='explanation'>
             <h3>Explanation</h3>
-            <p>{quizData[0].explanation}</p>
+            <p>{quizData[currentIndex].explanation}</p>
         </div>
     )
 }
