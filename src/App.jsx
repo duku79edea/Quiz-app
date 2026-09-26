@@ -8,10 +8,12 @@ import './App.css'
 export default function App(){
   return (
     <div className="quiz-interface">
-      <Header />
-      <Question />
-      <Button />
-      <Explanation />
+      <div className="question-interface">
+        <Header />
+        <Question />
+        <Button />
+        <Explanation />
+      </div>
       <Navigation />
    </div>
    )
