@@ -1,11 +1,12 @@
 import {useMemo} from 'react'
-function QuestionCard( { question } ){
+function QuestionCard ({ question, questionIndex, onAnswer, selectedAnswer }) {
+
     
     function orderArray (arr){
         const order = [...arr];
         for(let i = order.length-1; i>0; i--){
-            const j = Math.floor(Math.random() * (i+1))
-            [order[i], order[j]] = [order[j], order[i]]
+            const j = Math.floor(Math.random() * (i+1));
+            [order[i], order[j]] = [order[j], order[i]];
         }
         return order;
     }
@@ -15,8 +16,8 @@ function QuestionCard( { question } ){
     )
     return (
         <div>
-          {orderOptions.map(option =>
-        <button key={option}>{option}</button>)}  
+            <h3>{question.question}</h3>
+          {orderOptions.map(option => <button key={option} onClick={() => onAnswer(questionIndex, option)} className={selectedAnswer === option ? "selected" : ""}>{option}</button>)}  
         </div>
     )
 }
