@@ -17,7 +17,7 @@ function QuestionCard ({ question, questionIndex, onAnswer, selectedAnswer }) {
     return (
         <div>
             <h3>{question.question}</h3>
-          {orderOptions.map(option => <button key={option} onClick={() => onAnswer(questionIndex, option)} className={selectedAnswer === option ? "selected" : ""}>{option}</button>)}  
+          {orderOptions.map(option => <button key={option} onClick={() => onAnswer(questionIndex, option)}>{option}</button>)}  
         </div>
     )
 }

@@ -5,7 +5,7 @@ import QuestionCard from './QuestionCard';
 export default function App(){
 
   const [userAnswers, setUserAnswers] = useState({});
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   function handleAnswer (questionIndex, selectedOption) {
     setUserAnswers((prev) => ({...prev, [questionIndex] : selectedOption}))
