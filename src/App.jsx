@@ -1,3 +1,4 @@
+
 import Header from "./components/Header"
 import Question from "./components/Question"
 import Button from "./components/Button"
@@ -16,5 +17,5 @@ export default function App(){
       </div>
       <Navigation />
    </div>
-   )
+  )
 }
