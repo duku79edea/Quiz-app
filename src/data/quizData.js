@@ -1,4 +1,4 @@
-const quizData = [
+ export const quizData = [
   {
     question: "What should you do first if you smell gas in your kitchen?",
     options: [
