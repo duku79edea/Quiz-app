@@ -20,7 +20,7 @@ header h1{
 }
 .qn-card{
     background-color: rgb(224, 225, 226);
-    padding: 10px;
+    padding: 20px;
     border-radius: 5px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
 }
@@ -35,15 +35,16 @@ header h1{
 }
 .options{
     margin-bottom: 30px;
+    
 }
 .options p{
     margin-top: 10px;
     border-radius: 5px;
-    padding: 10px;
     min-height: 40px;
     background-color: rgb(224, 225, 226);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
-    
+    padding-left: 25px;
+    padding-top: 10px;
 }
 .btn{
     display: flex;
@@ -61,9 +62,15 @@ header h1{
 }
 .explanation{
     background-color: rgb(224, 225, 226);
-    padding: 10px;
+    padding: 24px 27px;
     border-radius: 5px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+
+}
+.explanation h3{
+    font-size: 18px;
+    margin-bottom: 8px;
+
 }
 .question-nav{
     width: 450px;

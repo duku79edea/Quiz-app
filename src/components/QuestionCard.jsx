@@ -15,9 +15,15 @@ function QuestionCard ({ question, questionIndex, onAnswer, selectedAnswer }) {
         () => orderArray(question.options), [question]
     )
     return (
-        <div>
-            <h3>{question.question}</h3>
-          {orderOptions.map(option => <button key={option} onClick={() => onAnswer(questionIndex, option)}>{option}</button>)}  
+        <div className='questions'>
+            <div className="qn-card">
+                <h3>Question {questionIndex + 1}</h3>
+                <p>{question.question}</p>
+            </div>
+            <div className="options">
+                {orderOptions.map(option => <p className='option-text' key={option} onClick={() => onAnswer(questionIndex, option)}>{option}</p>)}  
+            </div>
+          
         </div>
     )
 }
