@@ -7,23 +7,28 @@ import Button from "./components/Button"
 import Explanation from "./components/Explanation"
 import Navigation from "./components/Navigation"
 import './App.css'
+import ScoreScreen from './components/ScoreScreen';
 
-export default function App(){
+export default function App() {
 
   const [userAnswers, setUserAnswers] = useState({});
   const [currentIndex, setCurrentIndex] = useState(0);
   const [submittedAnswers, setSubmittedAnswers] = useState({});
+  const [isFinished, setIsFinished] = useState(false);
 
-  function handleAnswer (questionIndex, selectedOption) {
-    setUserAnswers((prev) => ({...prev, [questionIndex] : selectedOption}))
+  function handleAnswer(questionIndex, selectedOption) {
+    setUserAnswers((prev) => ({ ...prev, [questionIndex]: selectedOption }))
   }
 
-  function handleSubmit (questionIndex) {
+  function handleSubmit(questionIndex) {
     if (userAnswers[questionIndex] === undefined) return;
-    setSubmittedAnswers( (prev) => ({...prev, [questionIndex]: true})); 
+    setSubmittedAnswers((prev) => ({ ...prev, [questionIndex]: true }));
+    if (questionIndex === quizData.length - 1) {
+      setIsFinished(true);
+    }
   }
 
-  function calculateScore (quizData, userAnswers) {
+  function calculateScore(quizData, userAnswers) {
     let score = 0;
     quizData.forEach((question, i) => {
       if (userAnswers[i] === question.correctAnswer) {
@@ -35,32 +40,46 @@ export default function App(){
 
   const finalScore = calculateScore(quizData, userAnswers);
 
-  
+
 
   function onNavigate(index) {
     setCurrentIndex(index);
   }
-
+  const restartQuiz = () => {
+    setUserAnswers({});
+    setSubmittedAnswers({});
+    setCurrentIndex(0);
+    setIsFinished(false);
+  };
+  
+  if (isFinished) {
     return (
-      <div className="quiz-interface">
-        <div className="question-interface">
-          <Header />
-
-          <QuestionCard question={quizData[currentIndex]}
-            questionIndex = {currentIndex}
-            onAnswer = {handleAnswer}
-            selectedAnswer = {userAnswers[currentIndex]}
-            isSubmitted={!!submittedAnswers[currentIndex]}
-          />
-
-          <Button onNavigate={onNavigate} currentIndex={currentIndex} onSubmit={handleSubmit} canSubmit={userAnswers[currentIndex] !== undefined && !submittedAnswers[currentIndex]} />
-
-          <Explanation currentIndex={currentIndex} question={quizData[currentIndex]} isSubmitted={!!submittedAnswers[currentIndex]}/>
-
-        </div>
-
-        <Navigation quizData={quizData} currentIndex={currentIndex} userAnswers={userAnswers} onNavigate={onNavigate}/>
-
-     </div>
+      <ScoreScreen 
+      finalScore={finalScore}
+      onRestart={restartQuiz}
+       />
     )
+  }
+
+  return (
+    <div className="quiz-interface">
+      <div className="question-interface">
+        <Header />
+
+        <QuestionCard question={quizData[currentIndex]}
+          questionIndex={currentIndex}
+          onAnswer={handleAnswer}
+          selectedAnswer={userAnswers[currentIndex]}
+          isSubmitted={!!submittedAnswers[currentIndex]}
+        />
+
+        <Button onNavigate={onNavigate} currentIndex={currentIndex} onSubmit={handleSubmit} canSubmit={userAnswers[currentIndex] !== undefined && !submittedAnswers[currentIndex]} />
+
+        <Explanation currentIndex={currentIndex} question={quizData[currentIndex]} isSubmitted={!!submittedAnswers[currentIndex]} />
+
+      </div>
+
+      <Navigation quizData={quizData} currentIndex={currentIndex} userAnswers={userAnswers} onNavigate={onNavigate} />
+    </div>
+  )
 }
