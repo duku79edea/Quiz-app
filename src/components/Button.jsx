@@ -2,12 +2,13 @@ export default function Button({onNavigate,currentIndex,onSubmit,canSubmit,isSub
   return (
     <div className="btn">
       <button
+        className="prev-btn"
         onClick={() => {if (currentIndex > 0) {onNavigate(currentIndex - 1);}}}
       >
         Prev
       </button>
 
-      {isLastQuestion && isSubmitted ? (<button onClick={onFinish}>Finish Quiz</button>):(
+      {isLastQuestion && isSubmitted ? (<button className="finish-button" onClick={onFinish}>Finish Quiz</button>):(
       <button
         className="submit-button"
         onClick={() => onSubmit(currentIndex)}
@@ -17,6 +18,7 @@ export default function Button({onNavigate,currentIndex,onSubmit,canSubmit,isSub
       </button>
      )}
      <button
+        className="next-btn"
         onClick={() => {
           if (currentIndex < 19) { onNavigate(currentIndex + 1);}}}>Next</button>
     </div>
