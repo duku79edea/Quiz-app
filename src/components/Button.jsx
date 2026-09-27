@@ -1,9 +1,9 @@
-export default function Button({ onNavigate, currentIndex }){
+export default function Button({ onNavigate, currentIndex, onSubmit, canSubmit }){
     return(
         <div className="btn">
-            <button onClick={() => {if (currentIndex > 0)onNavigate(currentIndex - 1)}}>Prev</button>
-            <button>Submit</button>
-            <button onClick={() => {if (currentIndex < 19) onNavigate(currentIndex + 1)}}>Next</button>
+            <button onClick={() => {(currentIndex > 0) && onNavigate(currentIndex - 1)}}>Prev</button>
+            <button onClick={() => onSubmit(currentIndex)} disabled={!canSubmit}>Submit</button>
+            <button onClick={() => {(currentIndex < 19) && onNavigate(currentIndex + 1)}}>Next</button>
         </div>
     )
 }

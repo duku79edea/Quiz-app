@@ -12,9 +12,15 @@ export default function App(){
 
   const [userAnswers, setUserAnswers] = useState({});
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [submittedAnswers, setSubmittedAnswers] = useState({});
 
   function handleAnswer (questionIndex, selectedOption) {
     setUserAnswers((prev) => ({...prev, [questionIndex] : selectedOption}))
+  }
+
+  function handleSubmit (questionIndex) {
+    if (userAnswers[questionIndex] === undefined) return;
+    setSubmittedAnswers( (prev) => ({...prev, [questionIndex]: true})); 
   }
 
   function calculateScore (quizData, userAnswers) {
@@ -29,6 +35,8 @@ export default function App(){
 
   const finalScore = calculateScore(quizData, userAnswers);
 
+  
+
   function onNavigate(index) {
     setCurrentIndex(index);
   }
@@ -42,16 +50,17 @@ export default function App(){
             questionIndex = {currentIndex}
             onAnswer = {handleAnswer}
             selectedAnswer = {userAnswers[currentIndex]}
+            isSubmitted={!!submittedAnswers[currentIndex]}
           />
 
-          <Button onNavigate={onNavigate} currentIndex={currentIndex}/>
+          <Button onNavigate={onNavigate} currentIndex={currentIndex} onSubmit={handleSubmit} canSubmit={userAnswers[currentIndex] !== undefined && !submittedAnswers[currentIndex]} />
 
-          <Explanation currentIndex={currentIndex}/>
+          <Explanation currentIndex={currentIndex} question={quizData[currentIndex]} isSubmitted={!!submittedAnswers[currentIndex]}/>
 
         </div>
 
         <Navigation quizData={quizData} currentIndex={currentIndex} userAnswers={userAnswers} onNavigate={onNavigate}/>
-        
+
      </div>
     )
 }

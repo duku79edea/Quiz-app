@@ -1,19 +1,15 @@
 import {useMemo} from 'react'
-function QuestionCard ({ question, questionIndex, onAnswer, selectedAnswer }) {
+function QuestionCard ({ question, questionIndex, onAnswer, selectedAnswer, isSubmitted }) {
 
-    
-    function orderArray (arr){
-        const order = [...arr];
-        for(let i = order.length-1; i>0; i--){
-            const j = Math.floor(Math.random() * (i+1));
-            [order[i], order[j]] = [order[j], order[i]];
+    function getOptionClass (option) {
+        if (!isSubmitted) {
+            return option === selectedAnswer ? "selected" : "";
         }
-        return order;
+        if (option === question.correctAnswer) return "correct";
+        if (option === selectedAnswer) return "incorrect";
+        return "";
     }
 
-    const orderOptions = useMemo (
-        () => orderArray(question.options), [question]
-    )
     return (
         <div className='questions'>
             <div className="qn-card">
@@ -21,7 +17,7 @@ function QuestionCard ({ question, questionIndex, onAnswer, selectedAnswer }) {
                 <p>{question.question}</p>
             </div>
             <div className="options">
-                {orderOptions.map(option => <p className='option-text' key={option} onClick={() => onAnswer(questionIndex, option)}>{option}</p>)}  
+                {question.options.map(option => <p className={`option-text ${getOptionClass(option)}`} key={option} onClick={() => !isSubmitted && onAnswer(questionIndex, option)}>{option}</p>)}  
             </div>
           
         </div>
