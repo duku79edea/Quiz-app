@@ -1,4 +1,3 @@
-import {useMemo} from 'react'
 function QuestionCard ({ question, questionIndex, onAnswer, selectedAnswer, isSubmitted }) {
 
     function getOptionClass (option) {
@@ -17,7 +16,9 @@ function QuestionCard ({ question, questionIndex, onAnswer, selectedAnswer, isSu
                 <p>{question.question}</p>
             </div>
             <div className="options">
-                {question.options.map(option => <p className={`option-text ${getOptionClass(option)}`} key={option} onClick={() => !isSubmitted && onAnswer(questionIndex, option)}>{option}</p>)}  
+                {question.options
+                .map(option => <p className={`option-text ${getOptionClass(option)}`} 
+                key={option} onClick={() => !isSubmitted && onAnswer(questionIndex, option)}>{option}</p>)}  
             </div>
           
         </div>

@@ -2,7 +2,7 @@ export default function ScoreScreen({ finalScore, onRestart }) {
   return (
 
     <div className="score-screen">
-      <div className="Gad-wants">
+      <div className="score-content">
         <h2>Quiz Completed</h2>
         <p>You Scored: {finalScore}/20</p>
 

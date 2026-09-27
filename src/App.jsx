@@ -20,12 +20,13 @@ export default function App() {
     setUserAnswers((prev) => ({ ...prev, [questionIndex]: selectedOption }))
   }
 
-  function handleSubmit(questionIndex) {
-    if (userAnswers[questionIndex] === undefined) return;
-    setSubmittedAnswers((prev) => ({ ...prev, [questionIndex]: true }));
-    if (questionIndex === quizData.length - 1) {
-      setIsFinished(true);
-    }
+ function handleSubmit(questionIndex) {
+  if (userAnswers[questionIndex] === undefined) return;
+
+  setSubmittedAnswers((prev) => ({
+    ...prev,
+    [questionIndex]: true
+    }));
   }
 
   function calculateScore(quizData, userAnswers) {
@@ -66,16 +67,30 @@ export default function App() {
       <div className="question-interface">
         <Header />
 
-        <QuestionCard question={quizData[currentIndex]}
+        <QuestionCard 
+          question={quizData[currentIndex]}
           questionIndex={currentIndex}
           onAnswer={handleAnswer}
           selectedAnswer={userAnswers[currentIndex]}
           isSubmitted={!!submittedAnswers[currentIndex]}
         />
+        <Button
+          onNavigate={onNavigate}
+          currentIndex={currentIndex}
+          onSubmit={handleSubmit}
+          canSubmit={
+            userAnswers[currentIndex] !== undefined &&!submittedAnswers[currentIndex]
+          }
+          isSubmitted={!!submittedAnswers[currentIndex]}
+          isLastQuestion={currentIndex === quizData.length - 1}
+          onFinish={() => setIsFinished(true)}
+/>
 
-        <Button onNavigate={onNavigate} currentIndex={currentIndex} onSubmit={handleSubmit} canSubmit={userAnswers[currentIndex] !== undefined && !submittedAnswers[currentIndex]} />
-
-        <Explanation currentIndex={currentIndex} question={quizData[currentIndex]} isSubmitted={!!submittedAnswers[currentIndex]} />
+        <Explanation 
+          currentIndex={currentIndex} 
+          question={quizData[currentIndex]} 
+          isSubmitted={!!submittedAnswers[currentIndex]} 
+        />
 
       </div>
 
