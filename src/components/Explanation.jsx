@@ -1,6 +1,8 @@
-import {quizData} from '../data/quizData'
+import quizData from '../data/quizData'
 
-export default function Explanation({ currentIndex}){
+export default function Explanation({ currentIndex, isSubmitted}){
+
+    if (!isSubmitted) return null;
     return (
         <div className='explanation'>
             <h3>Explanation</h3>

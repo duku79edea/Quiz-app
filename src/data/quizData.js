@@ -3,9 +3,9 @@
     question: "What should you do first if you smell gas in your kitchen?",
     options: [
       "Turn on the lights to see better",
-      "Open windows and turn off the gas supply",
       "Light a match to check the source",
       "Ignore it, it will go away",
+      "Open windows and turn off the gas supply",
     ],
     correctAnswer: "Open windows and turn off the gas supply",
     explanation:
@@ -74,9 +74,9 @@
   {
     question: "What should you do if you receive an email asking for your bank password?",
     options: [
+      "Do not respond; it is likely a phishing attempt",      
       "Reply with your password immediately",
       "Click any link in the email to verify",
-      "Do not respond; it is likely a phishing attempt",
       "Forward it to all your contacts",
     ],
     correctAnswer: "Do not respond; it is likely a phishing attempt",
@@ -99,9 +99,9 @@
     question: "If a fire starts in a pan while cooking, what is the safest response?",
     options: [
       "Pour water on it",
-      "Cover it with a lid to cut off oxygen",
       "Carry the pan outside while it burns",
       "Fan it to reduce the flames",
+      "Cover it with a lid to cut off oxygen",
     ],
     correctAnswer: "Cover it with a lid to cut off oxygen",
     explanation:
@@ -110,8 +110,8 @@
   {
     question: "What does it mean to have an emergency fund?",
     options: [
+      "Money saved specifically for unexpected expenses",     
       "Money set aside for planned vacations",
-      "Money saved specifically for unexpected expenses",
       "A loan taken from a friend",
       "Money spent on entertainment",
     ],
@@ -122,8 +122,8 @@
   {
     question: "What is the correct way to store leftover cooked food safely?",
     options: [
-      "Leave it at room temperature overnight",
       "Refrigerate it within about two hours of cooking",
+      "Leave it at room temperature overnight",
       "Store it in an open container on the counter",
       "Reheat it only once a week",
     ],
@@ -135,8 +135,8 @@
     question: "What should you check before signing a rental agreement?",
     options: [
       "Only the monthly rent amount",
-      "The terms, deposit, duration, and responsibilities in the contract",
       "Nothing, just sign quickly",
+      "The terms, deposit, duration, and responsibilities in the contract",
       "The landlord's personal opinions",
     ],
     correctAnswer: "The terms, deposit, duration, and responsibilities in the contract",
@@ -147,9 +147,9 @@
     question: "Why is it important to back up important files regularly?",
     options: [
       "To make your device slower",
-      "To protect against data loss from device failure or accidents",
       "It is not necessary if you have a password",
       "Only businesses need to back up files",
+      "To protect against data loss from device failure or accidents",
     ],
     correctAnswer: "To protect against data loss from device failure or accidents",
     explanation:
@@ -159,9 +159,9 @@
     question: "What is the recommended first step in basic first aid for a minor cut?",
     options: [
       "Ignore it and continue activities",
-      "Apply pressure and clean the wound",
       "Cover it with soil to stop bleeding",
       "Wait several hours before treating it",
+      "Apply pressure and clean the wound",
     ],
     correctAnswer: "Apply pressure and clean the wound",
     explanation:
@@ -182,8 +182,8 @@
   {
     question: "What should you do before making a large purchase, like a phone or laptop?",
     options: [
-      "Buy the first one you see",
       "Compare prices, reviews, and features from different sources",
+      "Buy the first one you see",
       "Only trust the seller's description",
       "Avoid checking the warranty",
     ],
@@ -208,8 +208,8 @@
     options: [
       "Use the same simple password for every account",
       "Use your name and birth date",
-      "Use a unique, strong password for each account",
       "Share your password with friends for backup",
+      "Use a unique, strong password for each account",
     ],
     correctAnswer: "Use a unique, strong password for each account",
     explanation:
@@ -230,8 +230,8 @@
   {
     question: "Why is it important to read the terms and conditions before agreeing to an app or service?",
     options: [
-      "It is a waste of time and never matters",
       "To understand how your data will be used and what you're agreeing to",
+      "It is a waste of time and never matters",
       "Only lawyers need to read them",
       "They are always the same for every app",
     ],
