@@ -80,9 +80,9 @@ header h1{
 }
 .btn{
     display: flex;
-    gap: 40px;
     justify-content: center;
     margin-bottom: 30px;
+    gap: 5px;
 }
 .btn button{
     width: 100px;
@@ -90,15 +90,20 @@ header h1{
     border: none;
     box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
     background-color: var(--primary);
-    border-radius: 8px;
+    border-radius: 0;
     color: white;
     transition: 0.2s ease;
     font-weight: 600;
     cursor: pointer;
 }
+.btn button.prev-btn {
+    border-radius: 8px 0 0 8px;
+}
+.btn button.next-btn {
+    border-radius: 0 8px 8px 0;
+}
 .btn button:hover {
     background-color: var(--primary-dark);
-    transform: translateY(-1px);
 }
 .submit-button {
     background-color: #AABDFF;
@@ -264,9 +269,5 @@ header h1{
     .question-nav {
         max-width: 100%;
         margin-top: 20px;
-    }
-    .btn {
-        flex-wrap: wrap;
-        gap: 20px;
     }
 }
