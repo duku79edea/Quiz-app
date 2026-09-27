@@ -98,14 +98,14 @@ To preview the production build locally, run:
 npm run preview
 
 ## Live Application
-
 The deployed application will be available here:
 
 **Vercel:**
-[Add your Vercel deployment URL here]
+The link to the live demo of the project is 
+https://quiz-app-henna-one-8m66vw0tbh.vercel.app
+
 
 ## GitHub Repository
-
 The source code for this project is available on GitHub:
 
 https://github.com/duku79edea/Quiz-app
