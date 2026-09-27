@@ -1,28 +1,23 @@
-export default function Navigation(){
+export default function Navigation({ quizData, currentIndex, userAnswers, onNavigate }){
     return (
         <div className="question-nav">
-            <h3>Question</h3>
+            <h3>Question {currentIndex + 1} / 20</h3>
             <div className="btn-nav">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button>10</button>
-                <button>11</button>
-                <button>12</button>
-                <button>13</button>
-                <button>14</button>
-                <button>15</button>
-                <button>16</button>
-                <button>17</button>
-                <button>18</button>
-                <button>19</button>
-                <button>20</button>
+                {quizData.map((question, index) => {
+
+                    let statusClass = "unanswered";
+                    if (index === currentIndex) statusClass = 'current';
+                    else if (userAnswers[index] !== undefined) statusClass = 'answered';
+
+                    return (
+
+                        <button key={index} className={statusClass}
+                            onClick={() => onNavigate(index)}>
+                            {index + 1}
+                        </button>
+                    )
+                })}
+                
             </div>
         </div>
     )

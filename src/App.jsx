@@ -29,19 +29,29 @@ export default function App(){
 
   const finalScore = calculateScore(quizData, userAnswers);
 
+  function onNavigate(index) {
+    setCurrentIndex(index);
+  }
+
     return (
       <div className="quiz-interface">
         <div className="question-interface">
           <Header />
+
           <QuestionCard question={quizData[currentIndex]}
             questionIndex = {currentIndex}
             onAnswer = {handleAnswer}
             selectedAnswer = {userAnswers[currentIndex]}
           />
-          <Button />
-          <Explanation />
+
+          <Button onNavigate={onNavigate} currentIndex={currentIndex}/>
+
+          <Explanation currentIndex={currentIndex}/>
+
         </div>
-        <Navigation />
+
+        <Navigation quizData={quizData} currentIndex={currentIndex} userAnswers={userAnswers} onNavigate={onNavigate}/>
+        
      </div>
     )
 }
