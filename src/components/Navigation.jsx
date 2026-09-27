@@ -1,7 +1,10 @@
 export default function Navigation({ quizData, currentIndex, userAnswers, onNavigate }){
     return (
         <div className="question-nav">
-            <h3>Question {currentIndex + 1} / 20</h3>
+            <div className="nav-header">
+                <h3>Question {currentIndex + 1} / {quizData.length || 20}</h3>
+                <a href="#" className="help-link">Need help?</a>
+            </div>
             <div className="btn-nav">
                 {quizData.map((question, index) => {
 
