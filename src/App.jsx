@@ -84,13 +84,11 @@ export default function App() {
           isSubmitted={!!submittedAnswers[currentIndex]}
           isLastQuestion={currentIndex === quizData.length - 1}
           onFinish={() => setIsFinished(true)}
-/>
-
-        <Explanation 
-          currentIndex={currentIndex} 
-          question={quizData[currentIndex]} 
-          isSubmitted={!!submittedAnswers[currentIndex]} 
         />
+
+      <Explanation 
+        currentIndex={currentIndex} 
+      />
 
       </div>
 
