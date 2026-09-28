@@ -88,8 +88,7 @@ export default function App() {
 
         <Explanation 
           currentIndex={currentIndex} 
-          question={quizData[currentIndex]} 
-          isSubmitted={!!submittedAnswers[currentIndex]} 
+
         />
 
       </div>
